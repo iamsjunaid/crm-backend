@@ -1,5 +1,5 @@
 class Interaction < ApplicationRecord
   belongs_to :contact
 
-  validates :text, presence: true
+  validates :content, presence: true
 end
