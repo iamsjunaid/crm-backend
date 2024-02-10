@@ -30,7 +30,7 @@ class Api::V1::ContactsController < ApplicationController
     contact.destroy
   end
 
-  private 
+  private
 
   def contact_params
     params.require(:contact).permit(:name, :email, :customer_id)
