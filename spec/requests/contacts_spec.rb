@@ -33,3 +33,13 @@ RSpec.describe 'Contacts', type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "DELETE #destroy" do
+    it "returns http success" do
+      customer = Customer.create(name: "John Doe", email: "john@mail.com")
+      contact = Contact.create(name: "Jane Doe", email: "jane@mail.com", customer: customer)
+      delete "/api/v1/contacts/#{contact.id}"
+      expect(response).to have_http_status(:success)
+    end
+  end
+end
