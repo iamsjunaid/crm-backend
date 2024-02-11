@@ -16,3 +16,11 @@ RSpec.describe 'Contacts', type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "POST #create" do
+    it "returns http success" do
+      customer = Customer.create(name: "John Doe", email: "john@mail.com")
+      post "/api/v1/contacts", params: { contact: { name: "Jane Doe", email: "jane@mail.com", customer_id: customer.id } }
+      expect(response).to have_http_status(:created)
+    end
+  end
