@@ -1,6 +1,8 @@
 class Api::V1::ContactsController < ApplicationController
   def index
-    render json: Contact.all
+    customer = Customer.find(params[:customer_id])
+    contacts = customer.contacts
+    render json: contacts
   end
 
   def show
